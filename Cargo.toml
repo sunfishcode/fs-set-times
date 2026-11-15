@@ -11,10 +11,10 @@ keywords = ["api", "file"]
 categories = ["filesystem"]
 exclude = ["/.github"]
 
-[dependencies]
+[target.'cfg(any(unix, target_os = "wasi", windows))'.dependencies]
 io-lifetimes = { version = "2.0.0", default-features = false }
 
-[target.'cfg(not(windows))'.dependencies]
+[target.'cfg(any(unix, target_os = "wasi"))'.dependencies]
 rustix = { version = "1.0.0", features = ["fs", "time"] }
 
 [target.'cfg(windows)'.dependencies.windows-sys]
