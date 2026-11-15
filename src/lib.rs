@@ -4,7 +4,7 @@
 //! On Windows, modifying a file's timestamp requires write access to the file.
 
 #![deny(missing_docs)]
-#![cfg_attr(target_os = "wasi", feature(wasi_ext))]
+#![cfg(any(unix, target_os = "wasi", windows))]
 #![cfg_attr(not(windows), forbid(unsafe_code))]
 
 mod set_times;
